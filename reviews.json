@@ -1,0 +1,72 @@
+{
+  "googleMapsUri": "https://maps.app.goo.gl/ndyyrNJzBCLuc52E7?g_st=aw",
+  "note": "Only reviews with \"approved\": true are shown on the website. Set it to true once the reviewer has given permission. \"name\" is the name shown on the site; \"rating\" is optional (1 to 5) and shows stars when present.",
+  "reviews": [
+    {
+      "name": "Lee-Ann W.",
+      "approved": true,
+      "rating": null,
+      "text": "If you have dental anxiety, look no further. The entire staff here is world-class. The receptionist was super accommodating and got me in early, and the dentist and assistant are the most compassionate team I’ve ever met. The assistant even offered to hold my hand during the numbing injection! I felt completely safe, validated, and cared for from start to finish. I love this office and will never go anywhere else!"
+    },
+    {
+      "name": "Petronella T.",
+      "approved": true,
+      "rating": null,
+      "text": "Dr. Jac Jason Jacob is excellent and friendly even though I am not a local patient and am visiting Potchefstroom from Cape Town. I had an emergency with problematic extra ordinary teeth problems, which were sorted out immediately and a long term solution was found and will be ready in time before I return to Cape Town. Excellent same day service!"
+    },
+    {
+      "name": "Just_a_guy",
+      "approved": true,
+      "rating": null,
+      "text": "Kind people. Great service"
+    },
+    {
+      "name": "Luzane v. V.",
+      "approved": true,
+      "rating": null,
+      "text": "Doctor Jacob is the best! He made me feel calm and is very gentle. The assistant and receptionist is very friendly and made me feel comfortable. Definitely will recommend to go there for any dental work"
+    },
+    {
+      "name": "Noluthando B.",
+      "approved": true,
+      "rating": null,
+      "text": "Had such an amazing experience the Dr was gentle and played me my music and we had good conversations 🥰🥰 I highly recommend."
+    },
+    {
+      "name": "Tienie B.",
+      "approved": true,
+      "rating": null,
+      "text": "Excellent service and friendly staff Dr Jacob's is the best works gently and compassionately. Very professional felt no pain at all after numbness went away drive from Pretoria just to go there."
+    },
+    {
+      "name": "Bernard J.",
+      "approved": true,
+      "rating": null,
+      "text": "The whole staff at this place is so kind and the 2 times I was there, they did more for me than any other dentist I've seen in 21 years."
+    },
+    {
+      "name": "Alicia G.",
+      "approved": true,
+      "rating": null,
+      "text": "Was there today to remove my wisdom teeth. I was so stressed and they asked what songs do I want to listen to to help me relax. Must say the numbing is gone and yet I don't feel pain. They very professional and calm. I would recommend them anytime."
+    },
+    {
+      "name": "Rayden P.",
+      "approved": true,
+      "rating": null,
+      "text": "Great experience, very knowledgeable dentist."
+    },
+    {
+      "name": "Razeenah W.",
+      "approved": true,
+      "rating": null,
+      "text": "Central location and affordable prices for private clients. The Dental Hygienist, Welmé is extremely thorough and has a great demeanor, making clients feel comfortable and at ease."
+    },
+    {
+      "name": "Ané D. W.",
+      "approved": true,
+      "rating": null,
+      "text": "Best dentist I've ever been to. I drive from Gauteng to Potch just for this amazing dentist. Took out my wisdom teeth without any problems and I was walking around, driving"
+    }
+  ]
+}

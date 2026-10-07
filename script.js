@@ -36,12 +36,11 @@
     restartSlideTimer();
   }
 
-  // Google reviews: rendered from reviews.json, which the deploy workflow
-  // regenerates daily from the Google Places API. If the file is missing
-  // (API not configured yet, or page opened from disk) the card falls back
-  // to a plain link to the clinic's Google reviews.
+  // Patient reviews are read from reviews.json. Only entries marked
+  // "approved": true (reviewer has given permission) are shown. If none are
+  // approved, or the file can't be loaded, the card falls back to a link to
+  // the clinic's Google reviews.
   const reviewCard = document.getElementById("google-reviews");
-  const reviewSummary = document.getElementById("review-summary");
   const reviewStars = document.getElementById("review-stars");
   const quoteText = document.getElementById("testimonial-text");
   const quoteName = document.getElementById("testimonial-name");
@@ -49,6 +48,7 @@
   const quoteCounter = document.getElementById("testimonial-counter");
   const previousButton = document.getElementById("testimonial-previous");
   const nextButton = document.getElementById("testimonial-next");
+  const reviewNote = document.getElementById("review-note");
   const reviewAllLink = document.getElementById("review-all");
   let reviews = [];
   let quoteIndex = 0;
@@ -63,34 +63,16 @@
     if (!reviews.length) return;
     quoteIndex = (index + reviews.length) % reviews.length;
     const review = reviews[quoteIndex];
-    reviewStars.textContent = starString(review.rating);
-    reviewStars.setAttribute("aria-label", `${review.rating} out of 5 stars`);
+    if (review.rating) {
+      reviewStars.textContent = starString(review.rating);
+      reviewStars.setAttribute("aria-label", `${review.rating} out of 5 stars`);
+      reviewStars.hidden = false;
+    } else {
+      reviewStars.textContent = "";
+      reviewStars.hidden = true;
+    }
     quoteText.textContent = `“${review.text}”`;
-
-    quoteName.textContent = "";
-    if (review.authorPhoto) {
-      const photo = document.createElement("img");
-      photo.src = review.authorPhoto;
-      photo.alt = "";
-      photo.className = "reviewer-photo";
-      photo.referrerPolicy = "no-referrer";
-      photo.addEventListener("error", () => photo.remove());
-      quoteName.appendChild(photo);
-    }
-    const author = document.createElement(review.authorUri ? "a" : "span");
-    author.textContent = review.author;
-    if (review.authorUri) {
-      author.href = review.authorUri;
-      author.target = "_blank";
-      author.rel = "noopener noreferrer";
-    }
-    quoteName.appendChild(author);
-    if (review.relativeTime) {
-      const when = document.createElement("span");
-      when.className = "review-time";
-      when.textContent = ` · ${review.relativeTime}`;
-      quoteName.appendChild(when);
-    }
+    quoteName.textContent = `— ${review.name}`;
     quoteCounter.textContent = `${quoteIndex + 1} / ${reviews.length}`;
   }
 
@@ -104,24 +86,18 @@
     quoteText.textContent = "";
     quoteName.textContent = "";
     quoteControls.hidden = true;
-    reviewSummary.hidden = true;
+    reviewNote.hidden = true;
     reviewCard.classList.add("reviews-fallback");
   }
 
   function renderReviews(data) {
-    reviews = (data.reviews || []).filter((r) => r && r.text && r.author);
-    if (data.googleMapsUri) {
-      reviewSummary.href = data.googleMapsUri;
-      reviewAllLink.href = data.googleMapsUri;
-    }
-    if (typeof data.rating === "number" && data.userRatingCount) {
-      reviewSummary.textContent = `${data.rating.toFixed(1)} ★ · ${data.userRatingCount} Google reviews`;
-      reviewSummary.hidden = false;
-    }
+    reviews = (data.reviews || []).filter((r) => r && r.approved === true && r.text && r.name);
+    if (data.googleMapsUri) reviewAllLink.href = data.googleMapsUri;
     if (!reviews.length) {
       showFallback();
       return;
     }
+    reviewNote.hidden = false;
     quoteControls.hidden = reviews.length < 2;
     previousButton.addEventListener("click", () => { showQuote(quoteIndex - 1); restartQuoteTimer(); });
     nextButton.addEventListener("click", () => { showQuote(quoteIndex + 1); restartQuoteTimer(); });

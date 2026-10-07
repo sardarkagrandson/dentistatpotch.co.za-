@@ -9,8 +9,8 @@ This package is a complete static website. It does not require ChatGPT Sites, `c
 - `staff.html` — Staff page
 - `styles.css` — All site styling, responsive layouts and service-icon animations
 - `script.js` — Home-page gallery and Google reviews rotation
-- `scripts/fetch_google_reviews.py` — Fetches the clinic's Google rating and reviews during deployment
-- `.github/workflows/deploy-pages.yml` — Publishes the site to GitHub Pages on every push and once a day
+- `reviews.json` — Patient reviews shown on the home page (see below)
+- `.github/workflows/deploy-pages.yml` — Publishes the site to GitHub Pages on every push
 - `images/` — All website image files
 - `IMAGE-ASSET-LIST.md` — Image and icon inventory with page usage
 
@@ -48,25 +48,24 @@ No page, stylesheet, script, image or navigation link depends on `chatgpt.site`.
 
 ## Hosting on GitHub Pages
 
-The site is published automatically by GitHub Actions to GitHub Pages on every push to `main`, and again once a day so the Google reviews stay fresh.
+The site is published automatically by GitHub Actions to GitHub Pages on every push to `main`.
 
-## Live Google reviews
+## Patient reviews
 
-The home page shows the clinic's live Google rating and its most relevant reviews, pulled from the Google Places API and shown with Google attribution. The reviews are fetched once a day inside the deploy workflow and written to `reviews.json`, which is published with the site but never committed. Visitors' browsers never call Google and the API key never appears in the site.
+The home page shows patient reviews from `reviews.json`. Each entry looks like this:
 
-Until the two settings below exist, the reviews card simply shows a "Read our reviews on Google" link.
+```json
+{
+  "name": "Lee-Ann W.",
+  "approved": false,
+  "rating": null,
+  "text": "If you have dental anxiety, look no further. ..."
+}
+```
 
-### One-time setup
+- Only entries with `"approved": true` appear on the site. Keep it `false` until the reviewer has given permission for their review to be quoted on the website, and keep a record of that permission.
+- `name` is exactly what is shown on the site. Use whatever the reviewer agreed to, for example first name and initial.
+- `rating` is optional. Give it a number from 1 to 5 to show stars, or leave it `null` to show no stars.
+- While no reviews are approved, the card shows a "Read our reviews on Google" link instead.
 
-1. **Find the clinic's Place ID.** Open <https://developers.google.com/maps/documentation/places/web-service/place-id>, use the "Place ID Finder" on that page, search for "Dentist@Potch Potchefstroom" and copy the Place ID (it looks like `ChIJ...`).
-2. **Create an API key.**
-   - Go to <https://console.cloud.google.com/>, create a project (any name), and set up billing. Google gives a free monthly allowance that comfortably covers one request per day.
-   - Open "APIs & Services" → "Library", search for **Places API (New)** and enable it.
-   - Open "APIs & Services" → "Credentials" → "Create credentials" → "API key".
-   - Edit the key: under "API restrictions" choose "Restrict key" and tick only **Places API (New)**. Save.
-3. **Add the two values to this GitHub repository.** Open the repository → Settings → Secrets and variables → Actions.
-   - On the **Secrets** tab, click "New repository secret": name `GOOGLE_PLACES_API_KEY`, value = the API key.
-   - On the **Variables** tab, click "New repository variable": name `GOOGLE_PLACE_ID`, value = the Place ID.
-4. Open the Actions tab, choose "Deploy website to GitHub Pages" and click "Run workflow". The reviews appear on the home page once it finishes.
-
-The API returns up to five reviews, chosen by Google as most relevant, and the overall rating and review count. Google's terms allow this content to be cached for up to 30 days; this site refreshes it daily.
+Edit the file on GitHub, commit to `main`, and the site republishes within a minute or two.
