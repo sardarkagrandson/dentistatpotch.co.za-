@@ -3,6 +3,9 @@ name: Deploy website to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # Refresh Google reviews and republish once a day (03:17 UTC)
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -22,6 +25,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Fetch Google reviews
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ vars.GOOGLE_PLACE_ID }}
+        run: |
+          if [ -z "$GOOGLE_PLACES_API_KEY" ] || [ -z "$GOOGLE_PLACE_ID" ]; then
+            echo "::warning::GOOGLE_PLACES_API_KEY secret or GOOGLE_PLACE_ID variable not set; publishing without live Google reviews."
+            exit 0
+          fi
+          python3 scripts/fetch_google_reviews.py reviews.json
+
       - uses: actions/configure-pages@v5
         with:
           enablement: true
