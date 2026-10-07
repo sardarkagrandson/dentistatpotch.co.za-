@@ -8,9 +8,9 @@
 (function () {
   var ADS_ID = "AW-18372652447";
   var CONVERSIONS = {
-    book: "",      // RecoMed booking link
-    call: "",      // tel: links
-    whatsapp: ""   // wa.me links
+    book: "AW-18372652447/MYIACKj-1ZQdEJ_b4bhE",      // RecoMed booking link
+    call: "AW-18372652447/MYIACKj-1ZQdEJ_b4bhE",      // tel: links
+    whatsapp: "AW-18372652447/MYIACKj-1ZQdEJ_b4bhE"   // wa.me links
   };
 
   if (!ADS_ID) return;
