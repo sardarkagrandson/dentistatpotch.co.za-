@@ -8,8 +8,7 @@ This package is a complete static website. It does not require ChatGPT Sites, `c
 - `services.html` — Services page
 - `staff.html` — Staff page
 - `styles.css` — All site styling, responsive layouts and service-icon animations
-- `script.js` — Home-page gallery and Google reviews rotation
-- `reviews.json` — Patient reviews shown on the home page (see below)
+- `script.js` — Home-page gallery and patient-review rotation
 - `.github/workflows/deploy-pages.yml` — Publishes the site to GitHub Pages on every push
 - `images/` — All website image files
 - `IMAGE-ASSET-LIST.md` — Image and icon inventory with page usage
@@ -52,20 +51,6 @@ The site is published automatically by GitHub Actions to GitHub Pages on every p
 
 ## Patient reviews
 
-The home page shows patient reviews from `reviews.json`. Each entry looks like this:
+The reviews on the home page are a list near the bottom of `script.js`. Each reviewer has given permission for their review to be quoted on the website; keep a record of that permission. To add or remove a review, edit that list, commit to `main`, and the site republishes within a minute or two.
 
-```json
-{
-  "name": "Lee-Ann W.",
-  "approved": false,
-  "rating": null,
-  "text": "If you have dental anxiety, look no further. ..."
-}
-```
-
-- Only entries with `"approved": true` appear on the site. Keep it `false` until the reviewer has given permission for their review to be quoted on the website, and keep a record of that permission.
-- `name` is exactly what is shown on the site. Use whatever the reviewer agreed to, for example first name and initial.
-- `rating` is optional. Give it a number from 1 to 5 to show stars, or leave it `null` to show no stars.
-- While no reviews are approved, the card shows a "Read our reviews on Google" link instead.
-
-Edit the file on GitHub, commit to `main`, and the site republishes within a minute or two.
+When you change `styles.css` or `script.js`, bump the `?v=` number on their links in the HTML files so visitors' browsers fetch the new version.
