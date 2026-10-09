@@ -28,3 +28,6 @@ a.whatsapp-chat{display:inline-flex;align-items:center;gap:7px;margin-top:6px;fo
 .topbar nav a{color:#dff6ff}.topbar nav a:hover,.topbar nav a.active{color:#fff;border-color:#7fd8f7}
 .topbar .nav-appointment{background:#fff;color:#087ead}
 @media(max-width:700px){.topbar .brand{width:260px;max-width:78vw}}
+/* Banners share the top bar's gradient so the two flow together */
+.services-hero,.staff-hero{background:radial-gradient(circle at 50% -12%,rgba(7,169,234,.34),transparent 48%),linear-gradient(120deg,#061923,#0c3a50 55%,#061923)}
+.service-nav{border-bottom:0}
