@@ -31,3 +31,4 @@ a.whatsapp-chat{display:inline-flex;align-items:center;gap:7px;margin-top:6px;fo
 /* Banners share the top bar's gradient so the two flow together */
 .services-hero,.staff-hero{background:radial-gradient(circle at 50% -12%,rgba(7,169,234,.34),transparent 48%),linear-gradient(120deg,#061923,#0c3a50 55%,#061923)}
 .service-nav{border-bottom:0}
+.hero-copy .eyebrow sup,.hero-copy p sup{font-size:.6em;vertical-align:super;margin-left:1px}.hero-slide-invisalign::after{background:linear-gradient(90deg,rgba(2,19,30,.94) 0%,rgba(3,26,40,.72) 48%,rgba(3,26,40,.18) 100%)}
