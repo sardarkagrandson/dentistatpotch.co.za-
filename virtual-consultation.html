@@ -6,9 +6,9 @@
   <title>Virtual Consultation | Dentist@Potch</title>
   <meta name="description" content="See your Dentist@Potch dentist by video call. Weekday evenings and weekends, booked through RecoMed.">
   <link rel="icon" href="images/dentist-at-potch-emblem.webp">
-  <link rel="stylesheet" href="styles.css?v=15">
-  <script src="tracking.js?v=15"></script>
-  <script src="virtual-consultation.js?v=15" defer></script>
+  <link rel="stylesheet" href="styles.css?v=16">
+  <script src="tracking.js?v=16"></script>
+  <script src="virtual-consultation.js?v=16" defer></script>
 </head>
 <body>
   <main class="services-page">
@@ -23,20 +23,38 @@
     <section class="section-pad vc-section" id="what-it-is">
       <p class="eyebrow blue">WHAT IT IS</p>
       <h2>A video call with your dentist, instead of coming into the practice.</h2>
-      <div class="vc-cards">
-        <article class="vc-card"><div class="vc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M11 4h2M12 17v.01"/></svg></div><p>Phone, tablet or computer</p></article>
-        <article class="vc-card"><div class="vc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14v-4z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg></div><p>Live, real-time call</p></article>
-        <article class="vc-card"><div class="vc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12H3l9-9 9 9h-2M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"/></svg></div><p>No travel needed</p></article>
+      <div class="vc-showcase" aria-label="What you need">
+        <div class="vc-showcase-stage">
+          <article class="vc-card vc-show-item is-active"><div class="vc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M11 4h2M12 17v.01"/></svg></div><p>Phone, tablet or computer</p></article>
+          <article class="vc-card vc-show-item"><div class="vc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14v-4z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg></div><p>Live, real-time call</p></article>
+          <article class="vc-card vc-show-item"><div class="vc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12H3l9-9 9 9h-2M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"/></svg></div><p>No travel needed</p></article>
+        </div>
+        <div class="vc-showcase-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
       </div>
       <div class="vc-notes">
         <div class="vc-note vc-note-pay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M9 5h9a3 3 0 0 1 3 3v8m-1.5 2.5A3 3 0 0 1 18 19H6a3 3 0 0 1-3-3V8a3 3 0 0 1 1.5-2.6M3 11h8M14 11h7M7 15h.01"/></svg><div><strong>Medical aid is not accepted</strong><p>Virtual consultations are self-pay only.</p></div></div>
-        <div class="vc-note vc-note-consent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 14l2 2 4-4"/></svg><div><strong>Consent form required</strong><p>You must complete the logbook consent form with your details before the call.</p></div></div>
+        <div class="vc-note vc-note-consent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 14l2 2 4-4"/></svg><div><strong>Consent form required</strong><p>You must complete the logbox consent form with your details before the call.</p></div></div>
       </div>
     </section>
 
     <section class="section-pad vc-section vc-how" id="how-it-works">
       <p class="eyebrow blue">HOW IT WORKS</p>
-      <h2>Times, cost and how to book.</h2>
+      <h2>Booking steps</h2>
+      <ol class="vc-flowchart" aria-label="Booking steps">
+        <li><span class="vc-node">1</span><div class="vc-box"><strong>Open the RecoMed booking link.</strong></div></li>
+        <li><span class="vc-node">2</span><div class="vc-box"><strong>Select “Virtual consult” as the reason for the visit.</strong></div></li>
+        <li><span class="vc-node">3</span><div class="vc-box"><strong>Choose a time slot allocated to virtual consultations and register with a phone number that has WhatsApp enabled.</strong><p>This is where the payment link and follow-up links will be sent.</p></div></li>
+        <li><span class="vc-node">4</span><div class="vc-box"><strong>Receive a payment link via WhatsApp.</strong></div></li>
+        <li><span class="vc-node">5</span><div class="vc-box"><strong>Complete payment.</strong></div></li>
+        <li><span class="vc-node">6</span><div class="vc-box"><strong>On successful payment, receive three things via WhatsApp:</strong>
+          <ul>
+            <li>Proof of payment</li>
+            <li>Logbox link, to give consent and enter your details. <strong>Required before the call.</strong></li>
+            <li>Zoom link for the consultation</li>
+          </ul></div></li>
+      </ol>
+
+      <h3>Times and cost</h3>
       <table class="vc-table">
         <thead><tr><th scope="col"></th><th scope="col">Hours</th><th scope="col">Cost</th></tr></thead>
         <tbody>
@@ -44,32 +62,6 @@
           <tr><th scope="row">Weekends &amp; public holidays</th><td data-vc="weekend-hours">13:00 – 18:00</td><td data-vc="weekend-cost">R450</td></tr>
         </tbody>
       </table>
-
-      <h3>Booking steps</h3>
-      <ol class="vc-steps">
-        <li>Open the RecoMed booking link.</li>
-        <li>Select <strong>“Virtual consult”</strong> as the reason for the visit.</li>
-        <li>Choose a time slot allocated to virtual consultations.</li>
-        <li>Enter a phone number that has WhatsApp attached. This is how the payment link and follow-up links are sent.</li>
-        <li>Receive a payment link via WhatsApp.</li>
-        <li>Complete payment.</li>
-        <li>On successful payment, receive three things via WhatsApp:
-          <ul>
-            <li>Proof of payment</li>
-            <li>Logbook link, to give consent and enter your details. <strong>Required before the call.</strong></li>
-            <li>Zoom link for the consultation</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h3>The booking flow at a glance</h3>
-      <ol class="vc-flow" aria-label="Booking flow, five steps">
-        <li><span>1</span><strong>Book on RecoMed</strong><small>Reason: Virtual consult</small></li>
-        <li><span>2</span><strong>Payment link</strong><small>Sent to your WhatsApp</small></li>
-        <li><span>3</span><strong>Pay</strong><small>Via the link</small></li>
-        <li><span>4</span><strong>Receive your links</strong><small>Proof of payment, logbook, Zoom</small></li>
-        <li><span>5</span><strong>Complete the logbook</strong><small>Then join the call</small></li>
-      </ol>
 
       <div class="vc-cta">
         <div><p class="eyebrow">READY TO BOOK?</p><h2>Book your virtual consultation on RecoMed.</h2><p>Choose <strong>“Virtual consult”</strong> as the reason for the visit and pick a virtual-consult time slot.</p></div>

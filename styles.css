@@ -32,12 +32,6 @@ a.whatsapp-chat{display:inline-flex;align-items:center;gap:7px;margin-top:6px;fo
 .services-hero,.staff-hero{background:radial-gradient(circle at 50% -12%,rgba(7,169,234,.34),transparent 48%),linear-gradient(120deg,#061923,#0c3a50 55%,#061923)}
 .service-nav{border-bottom:0}
 .hero-copy .eyebrow sup,.hero-copy p sup{font-size:.6em;vertical-align:super;margin-left:1px}.hero-slide-invisalign::after{background:linear-gradient(90deg,rgba(2,19,30,.94) 0%,rgba(3,26,40,.72) 48%,rgba(3,26,40,.18) 100%)}
-/* Virtual consultation banner (home page) */
-.vc-banner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px;margin:0 clamp(28px,7vw,90px) 90px;padding:34px 38px;border-radius:8px;color:#fff;background:radial-gradient(circle at 85% 20%,rgba(7,169,234,.45),transparent 40%),linear-gradient(120deg,#061923,#0c3a50);box-shadow:0 18px 40px rgba(6,25,35,.18);transition:transform .2s ease,box-shadow .2s ease}
-.vc-banner:hover{transform:translateY(-3px);box-shadow:0 24px 48px rgba(6,25,35,.26)}
-.vc-banner-icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.1);color:#7fd8f7}.vc-banner-icon svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.vc-banner-copy .eyebrow{color:#7fd8f7;margin-bottom:10px}.vc-banner-copy h2{margin:0;font-family:Georgia,serif;font-size:clamp(24px,2.6vw,34px);font-weight:400;line-height:1.15;letter-spacing:-.02em}.vc-banner-copy p:last-child{margin:10px 0 0;color:#c6e2ed;font-size:15px;line-height:1.55}
-.vc-banner-cta{white-space:nowrap;background:#fff;color:#087ead;padding:14px 20px;border-radius:4px;font-size:13px;font-weight:800}
 /* Virtual consultation page */
 .vc-section{max-width:980px;margin:auto}.vc-section h2{font-family:Georgia,serif;font-size:clamp(28px,3.2vw,42px);line-height:1.12;font-weight:400;margin:0 0 34px;letter-spacing:-.025em}.vc-section h3{font-family:Georgia,serif;font-size:26px;font-weight:400;margin:48px 0 18px}
 .vc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.vc-card{border:1px solid var(--line);border-radius:6px;padding:28px 22px;text-align:center;background:#fff}.vc-icon{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:var(--pale);color:var(--blue);display:grid;place-items:center}.vc-icon svg,.vc-note svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.vc-icon svg{width:30px;height:30px}.vc-card p{margin:0;font-size:15px;font-weight:700;color:var(--ink)}
@@ -52,3 +46,23 @@ a.whatsapp-chat{display:inline-flex;align-items:center;gap:7px;margin-top:6px;fo
 @media(max-width:700px){.vc-banner{grid-template-columns:1fr;gap:18px;margin:0 24px 65px;padding:28px 24px}.vc-banner-cta{justify-self:start}.vc-notes{grid-template-columns:1fr}.vc-cta{display:block;padding:32px 26px}.vc-cta a{display:inline-block;margin-top:20px}.vc-table{font-size:14px}.vc-table th,.vc-table td{padding:12px 8px}}
 @media(max-width:480px){.vc-cards{grid-template-columns:1fr}}
 .topbar nav a{white-space:nowrap}@media(max-width:700px){.topbar nav{flex-wrap:wrap;row-gap:0;gap:4px 14px}}
+/* Virtual consultation slide on the home page */
+.hero-slide-virtual{background:radial-gradient(circle at 82% 30%,rgba(7,169,234,.5),transparent 38%),linear-gradient(120deg,#061923,#0c3a50 60%,#083a52)}
+.hero-slide-virtual::after{background:linear-gradient(90deg,rgba(2,19,30,.55) 0%,rgba(3,26,40,.25) 50%,transparent 100%)}
+.hero-virtual-icon{position:absolute;right:8%;top:50%;width:min(34vw,300px);height:auto;transform:translateY(-50%);fill:none;stroke:#7fd8f7;stroke-width:.9;stroke-linecap:round;stroke-linejoin:round;opacity:.5;z-index:1}
+.hero-slide-link{position:absolute;inset:0;z-index:3}.hero-slide-virtual .hero-copy{pointer-events:none}
+.hero-cta{display:inline-block;margin-top:28px;background:#fff;color:#087ead;padding:14px 20px;border-radius:4px;font-size:13px;font-weight:800}.hero-slide-virtual:hover .hero-cta{background:#dff6ff}
+/* What-it-is showcase animation */
+.vc-showcase{position:relative}.vc-showcase-stage{position:relative;height:230px}.vc-show-item{position:absolute;left:50%;top:0;width:min(100%,420px);transform:translate(-50%,60px) scale(.6);opacity:0;visibility:hidden;transition:transform .55s cubic-bezier(.2,.8,.3,1),opacity .55s ease,visibility 0s linear .55s}
+.vc-show-item.is-active{transform:translate(-50%,0) scale(1);opacity:1;visibility:visible;transition-delay:0s}
+.vc-show-item.is-leaving{transform:translate(-50%,-20px) scale(1.06);opacity:0;visibility:visible;transition:transform .45s ease,opacity .45s ease}
+.vc-showcase .vc-card{padding:40px 28px}.vc-showcase .vc-icon{width:72px;height:72px}.vc-showcase .vc-icon svg{width:38px;height:38px}.vc-showcase .vc-card p{font-size:19px}
+.vc-showcase-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}.vc-showcase-dots span{width:8px;height:8px;border-radius:50%;background:#c9dde5;transition:background .3s,width .3s}.vc-showcase-dots span.is-active{width:26px;border-radius:8px;background:var(--blue)}
+.vc-showcase-static .vc-showcase-stage{height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.vc-showcase-static .vc-show-item{position:static;transform:none;opacity:1;visibility:visible;width:auto}.vc-showcase-static .vc-showcase-dots{display:none}
+/* Booking steps flow chart */
+.vc-flowchart{list-style:none;margin:0;padding:0;max-width:720px}.vc-flowchart>li{position:relative;display:grid;grid-template-columns:44px 1fr;gap:18px;padding-bottom:34px}
+.vc-flowchart>li::before{content:"";position:absolute;left:21px;top:44px;bottom:0;width:2px;background:#c9dde5}.vc-flowchart>li::after{content:"";position:absolute;left:15px;bottom:4px;width:10px;height:10px;border-right:2px solid #c9dde5;border-bottom:2px solid #c9dde5;transform:rotate(45deg)}
+.vc-flowchart>li:last-child{padding-bottom:0}.vc-flowchart>li:last-child::before,.vc-flowchart>li:last-child::after{display:none}
+.vc-node{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px;box-shadow:0 0 0 6px #eaf7fc}
+.vc-box{background:#fff;border:1px solid var(--line);border-radius:6px;padding:18px 22px;box-shadow:0 10px 30px rgba(9,51,70,.06)}.vc-box strong{display:block;color:var(--ink);font-size:16px;line-height:1.5}.vc-box p{margin:8px 0 0;color:#4f6069;font-size:15px;line-height:1.6}.vc-box ul{margin:10px 0 0;padding-left:20px;color:#4f6069;font-size:15px;line-height:1.6}.vc-box ul li{margin-bottom:4px}.vc-box ul strong{display:inline;font-size:inherit}
+@media(max-width:700px){.vc-flowchart>li{grid-template-columns:36px 1fr;gap:12px}.vc-node{width:36px;height:36px;font-size:13px}.vc-flowchart>li::before{left:17px;top:36px}.vc-flowchart>li::after{left:11px}.vc-box{padding:14px 16px}.vc-showcase-stage{height:250px}.hero-virtual-icon{right:4%;top:22%;width:38vw;transform:none;opacity:.35}}
